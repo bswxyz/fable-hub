@@ -1,5 +1,5 @@
 /* ============================================================
-   FABLE hub — progressive enhancement only.
+   PARABLE hub — progressive enhancement only.
    Nothing here is required to read the page or follow a link.
    ============================================================ */
 (function () {

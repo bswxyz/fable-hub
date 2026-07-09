@@ -1,4 +1,4 @@
-# Build Status — Fable 25 + Hub
+# Build Status — Parable 25 + Hub
 
 Legend: ☐ todo · ◐ in progress · ☑ done
 Columns: idea · Mobbin research · built · iter-1 (structure) · iter-2 (motion) · iter-3 (polish) · deployed · linked-in-hub

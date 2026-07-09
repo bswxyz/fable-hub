@@ -1,10 +1,10 @@
-# FABLE — the hub
+# PARABLE — the hub
 
 **Twenty-five products that don’t exist. One studio that does.**
 
 Live: <https://bswxyz.github.io/fable-hub/> · Master guide: <https://bswxyz.github.io/fable-hub/guide/>
 
-Fable is a design-studio showcase. This hub is the front door: a gallery of 25 fictional-product
+Parable is a design-studio showcase. This hub is the front door: a gallery of 25 fictional-product
 websites — each a complete, individually-crafted site with its own palette, type system, motion and
 signature technique — plus the master guide documenting how the whole set was built. No two of the 25
 share a template.
@@ -13,7 +13,7 @@ share a template.
 
 ## Concept
 
-Template galleries usually show one layout twenty-five times with the colours swapped. Fable does the
+Template galleries usually show one layout twenty-five times with the colours swapped. Parable does the
 opposite: twenty-five **concrete product concepts** across twenty-five categories — a sleep wearable, an
 eVTOL air-taxi, a literary magazine, a citizen-astronomy network — each forcing a genuinely different
 design. A fictional product is a constraint generator: it tells you what *can’t* be generic. This hub
@@ -80,10 +80,10 @@ fable-hub/
   built to demonstrate the design, not production backends — each site’s own README carries its demo-vs-real
   map.
 - **The hub is real and complete.** This gallery, its filter, the spectrum accent and the master guide are a
-  finished, deployed artifact. The design and code are AI-generated (by Claude, as “Fable”); the seven
+  finished, deployed artifact. The design and code are AI-generated (by Claude); the seven
   photographic heroes across the 25 were generated with Higgsfield, and every other visual is procedural
   (WebGL / canvas / SVG). That’s stated plainly here and in the guide.
 
 ---
 
-© 2026 Fable. Designed & built by Fable. Code under the MIT License.
+© 2026 Parable. Designed & built by Parable. Code under the MIT License.
