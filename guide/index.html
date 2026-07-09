@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Fable was built — the master guide</title>
+<meta name="description" content="The master build guide for Fable: how twenty-five fictional-product design showcases were designed and shipped — ideation, Mobbin UX research, asset generation, per-site build, three iteration passes, and GitHub Pages deploy. Links to all 25 guides and repos." />
+<meta name="theme-color" content="#141318" />
+<meta name="color-scheme" content="dark" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#141318;--panel:#1b1a21;--bone:#f2f0ea;--dim:#a5a1ac;--faint:#66626e;--line:rgba(242,240,234,.10);--max:820px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--bone);font-family:"Inter",system-ui,sans-serif;line-height:1.68;-webkit-font-smoothing:antialiased}
+a{color:var(--bone)}
+.grad{background:linear-gradient(90deg,#e8b06a,#6cff6a,#43e0c8,#8b7cff,#ff3d8e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:var(--max);margin:0 auto;padding:clamp(28px,6vw,72px) clamp(18px,5vw,32px)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.12em;color:var(--dim)}
+.top a{color:var(--dim)}.top a:hover{color:var(--bone)}
+.ey{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:1.6rem}
+h1{font-family:"Sora",sans-serif;font-weight:800;font-size:clamp(2.4rem,7vw,4rem);line-height:1;letter-spacing:-.03em;margin-bottom:1rem}
+.sub{color:var(--dim);font-size:1.14rem;margin-bottom:1rem;max-width:60ch}
+.spectrum{height:6px;border-radius:6px;margin:2rem 0 3.4rem;background:linear-gradient(90deg,#e8b06a,#c65d3b,#d6f24e,#6cff6a,#43e0c8,#2bb4a6,#3aa0ff,#8b7cff,#6d6ae0,#ff3d8e,#ff2ea6,#ff8a3d,#ffb02e);box-shadow:0 0 22px -6px rgba(242,240,234,.25)}
+h2{font-family:"Sora",sans-serif;font-weight:700;font-size:clamp(1.5rem,3.6vw,2.1rem);letter-spacing:-.02em;margin:3.2rem 0 .4rem;display:flex;gap:.6rem;align-items:baseline}
+h2 .h-n{font-family:"JetBrains Mono",monospace;font-size:.9rem;font-weight:500;color:var(--faint);letter-spacing:0}
+h3{font-family:"Sora",sans-serif;font-weight:600;font-size:1.12rem;margin:1.8rem 0 .3rem}
+p{color:#cfccd4;margin:1rem 0}
+strong{color:var(--bone);font-weight:600}
+em{font-style:italic}
+ul{margin:1rem 0 1rem 1.15rem;color:#cfccd4}li{margin:.5rem 0}
+ol.steps{list-style:none;margin:1.4rem 0;padding:0;counter-reset:st}
+ol.steps>li{counter-increment:st;position:relative;padding:0 0 1.3rem 3rem;border-left:1px solid var(--line);margin-left:1rem}
+ol.steps>li::before{content:counter(st,decimal-leading-zero);position:absolute;left:-1rem;top:-2px;transform:translateX(-50%);
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--bg);background:var(--bone);width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center}
+ol.steps>li:last-child{border-left-color:transparent}
+ol.steps h3{margin:.1rem 0 .3rem}
+pre{background:#0f0e13;border:1px solid var(--line);border-radius:12px;padding:15px 18px;overflow-x:auto;margin:1.2rem 0;font-family:"JetBrains Mono",monospace;font-size:.8rem;line-height:1.7;color:#cfccd4}
+code{font-family:"JetBrains Mono",monospace;font-size:.86em;color:#e8b06a}
+pre code{color:inherit}
+.rule{height:1px;background:var(--line);margin:3.2rem 0;border:0}
+.callout{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:1.6rem 0}
+.callout p{margin:.4rem 0}
+/* the 25 list */
+.sites{list-style:none;margin:1.6rem 0;padding:0;border-top:1px solid var(--line)}
+.site-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.site-n{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--faint);padding-top:3px;flex:none;width:1.6rem}
+.site-main{flex:1;display:flex;flex-direction:column;gap:2px}
+.site-name{font-family:"Sora",sans-serif;font-weight:600;font-size:1.02rem}
+.site-name:hover{color:#43e0c8}
+.site-sig{color:var(--dim);font-size:.86rem;line-height:1.45}
+.site-links{display:inline-flex;gap:12px;flex:none;font-family:"JetBrains Mono",monospace;font-size:.74rem;padding-top:3px}
+.site-links a{color:var(--dim)}.site-links a:hover{color:var(--bone)}
+/* awards */
+.awards{list-style:none;margin:1.4rem 0;padding:0;counter-reset:aw}
+.awards>li{counter-increment:aw;position:relative;padding:14px 0 14px 3rem;border-bottom:1px solid var(--line)}
+.awards>li::before{content:counter(aw);position:absolute;left:0;top:12px;font-family:"Sora",sans-serif;font-weight:800;font-size:1.4rem;color:transparent;
+  background:linear-gradient(90deg,#e8b06a,#ff3d8e);-webkit-background-clip:text;background-clip:text}
+.awards h3{margin:0 0 .2rem}
+.awards p{margin:.2rem 0;font-size:.94rem}
+.awards .why{color:var(--dim)}
+.back{display:inline-block;margin-top:2.6rem;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--dim)}
+.back:hover{color:var(--bone)}
+a:focus-visible{outline:2px solid var(--bone);outline-offset:3px;border-radius:5px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="../">← Fable</a>
+    <span>THE MASTER GUIDE · how the 25 were built</span>
+  </div>
+
+  <span class="ey">Design showcase · full methodology</span>
+  <h1>Twenty-five products.<br><span class="grad">One method.</span></h1>
+  <p class="sub">Fable is a studio showcase: twenty-five fictional products, each shipped as a complete,
+    individually-designed website. This is the honest, end-to-end account of how they were made — and how
+    you could reproduce the whole thing.</p>
+  <div class="spectrum" aria-hidden="true"></div>
+
+  <h2><span class="h-n">01</span>The idea</h2>
+  <p>Most “template galleries” show the same layout twenty-five times with the colours swapped. That teaches
+    you nothing, because the hard part of design isn’t the grid — it’s <em>fit</em>: the way a wine club should
+    feel unhurried and a transit app should feel instantly legible, and how that conviction reaches every
+    type choice, easing curve and interaction.</p>
+  <p>So Fable started from <strong>concrete product concepts</strong> instead of abstract templates. A sleep
+    wearable. An eVTOL air-taxi. A literary magazine. A citizen-astronomy network. Twenty-five briefs across
+    twenty-five categories — each one forcing a different palette, voice, motion language and signature
+    technique. A fictional product is a design constraint generator: it tells you what <em>can’t</em> be
+    generic.</p>
+  <div class="callout">
+    <p><strong>The through-line.</strong> What every site shares is not a look — it’s a rigor bar: design
+      tokens in <code>:root</code>, a display+body+mono type system, a named signature easing, a clipped-line
+      hero intro, IntersectionObserver scroll reveals, a full <code>prefers-reduced-motion</code> fallback,
+      <code>:focus-visible</code> keyboard support, real alt text, and a per-site build guide. Same
+      engineering discipline; twenty-five divergent identities.</p>
+  </div>
+
+  <h2><span class="h-n">02</span>The workflow</h2>
+  <p>Each site moved through the same pipeline, but every stage produced deliberately different output.</p>
+  <ol class="steps">
+    <li>
+      <h3>Ideation</h3>
+      <p>Write the brief as a real product: what it is, who it’s for, its voice, and the one feeling the
+        homepage must deliver in five seconds. That feeling becomes the site’s signature technique.</p>
+    </li>
+    <li>
+      <h3>Per-project Mobbin UX research</h3>
+      <p>For each category, study 5–10 shipped products via <strong>Mobbin</strong> — onboarding, navigation,
+        empty/loading states, microcopy. Two or three real interaction patterns per site are adopted as the
+        UX backbone, so the invented visuals sit on top of proven ergonomics rather than guesswork.</p>
+    </li>
+    <li>
+      <h3>Asset generation</h3>
+      <p>Seven sites needed a photographic hero (cabins, vineyard, surf, ceramics, coffee, plants). Those
+        stills were generated with <strong>Higgsfield</strong>, then compressed. <em>Everything else is
+        procedural</em> — WebGL, canvas and SVG generated at runtime: starfields, terrain, wireframes,
+        molecular models, wave-fields, pixel dungeons. No stock, no bloat.</p>
+    </li>
+    <li>
+      <h3>Build — one identity at a time</h3>
+      <p>Each site gets its own palette, type trio, signature easing and signature technique. No two share a
+        display+body+mono combination; no two share a technique. Vanilla sites are three files
+        (<code>index.html</code>, <code>styles.css</code>, <code>main.js</code>); framework sites static-export.</p>
+    </li>
+    <li>
+      <h3>Three iteration passes</h3>
+      <p><strong>Structure</strong> (layout, content, semantics) → <strong>Motion</strong> (hero intro,
+        reveals, the signature moment, plus a working reduced-motion path) → <strong>Polish</strong>
+        (contrast, focus states, a Lighthouse-minded performance pass, lazy-loading, weight budget).</p>
+    </li>
+    <li>
+      <h3>Deploy</h3>
+      <p>Every site ships to <strong>GitHub Pages</strong> as its own repo. Vanilla sites use relative paths
+        and a <code>.nojekyll</code> flag; framework builds set a base path and publish the exported
+        <code>/docs</code> (or <code>dist</code>) output. This hub links them all together.</p>
+    </li>
+  </ol>
+
+  <h2><span class="h-n">03</span>The tools</h2>
+  <ul>
+    <li><strong>Claude (Fable)</strong> — the builder. Wrote the HTML, CSS, shaders and interaction code for
+      all twenty-six sites, and this guide. The visual design decisions, procedural graphics and copy are
+      AI-generated; that’s stated plainly here and in every site’s README.</li>
+    <li><strong>Mobbin MCP</strong> — UX research: real patterns from shipped products, per category.</li>
+    <li><strong>Higgsfield</strong> — the seven photographic hero stills (the only non-procedural imagery).</li>
+    <li><strong>GitHub CLI + Pages</strong> — hosting; one public repo per site, Pages served from
+      <code>main</code>.</li>
+    <li><strong>Playwright</strong> — headless Chromium to capture the 1600×1200 gallery thumbnails you see
+      on the hub.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Honest about what’s AI-generated.</strong> These are design-showcase concepts, not shipping
+      products. Interactive “engines” (a RAW developer, a robo-advisor projection, a molecular viewer) are
+      faithful browser-side approximations built to demonstrate the design — not production backends. Each
+      site’s README carries a demo-vs-real map.</p>
+  </div>
+
+  <h2><span class="h-n">04</span>The twenty-five</h2>
+  <p>Every product below is live, with its own build guide and public repository.</p>
+  <ol class="sites">
+      <li class="site-row">
+        <span class="site-n">01</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/aperture-lab/" target="_blank" rel="noopener">Aperture Lab<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a draggable RAW ↔ developed reveal over a live CSS-filter develop rack</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/aperture-lab/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/aperture-lab" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">02</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/northbound-ev/" target="_blank" rel="noopener">Northbound<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a three.js topographic terrain with a self-drawing glowing route line</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/northbound-ev/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/northbound-ev" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">03</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/perigee-astro/" target="_blank" rel="noopener">Perigee<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a 72k-star GPU shader starfield feeding a live sky console</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/perigee-astro/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/perigee-astro" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">04</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/kiln-collective/" target="_blank" rel="noopener">Kiln Collective<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">SVG paper-grain texture and hand-drawn linework that draws itself on</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/kiln-collective/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/kiln-collective" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">05</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/meridian-advisor/" target="_blank" rel="noopener">Meridian<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a live projection fan and allocation donut driven by React state</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/meridian-advisor/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/meridian-advisor" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">06</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/undertow-festival/" target="_blank" rel="noopener">Undertow Film Festival<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">letterpress kinetic type with grid-breaks and marquee tickers</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/undertow-festival/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/undertow-festival" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">07</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/fernweh-cabins/" target="_blank" rel="noopener">Fernweh<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">long, lazy parallax stacks of generated ridgeline silhouettes</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/fernweh-cabins/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/fernweh-cabins" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">08</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/loop-and-larder/" target="_blank" rel="noopener">Loop & Larder<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">hand-lettered ink that draws on, plus a roast-level subscription builder</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/loop-and-larder/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/loop-and-larder" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">09</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/halcyon-ring/" target="_blank" rel="noopener">Halcyon Ring<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a breathing ring over a slowly-flowing canvas dusk gradient</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/halcyon-ring/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/halcyon-ring" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">10</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/vantage-point-studio/" target="_blank" rel="noopener">Vantage Point Studio<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a morphing three.js massing model behind a horizontal-drag project index</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/vantage-point-studio/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/vantage-point-studio" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">11</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/static-and-noise/" target="_blank" rel="noopener">Static & Noise<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a Web Audio audio-reactive canvas driven by a synthesized loop</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/static-and-noise/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/static-and-noise" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">12</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/driftline-ocean/" target="_blank" rel="noopener">Driftline<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">layered wave-field canvases and a scroll-driven descent from surface to deep</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/driftline-ocean/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/driftline-ocean" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">13</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/fieldnote-research/" target="_blank" rel="noopener">Fieldnote<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a working ⌘K command palette and citation hover-cards</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/fieldnote-research/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/fieldnote-research" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">14</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/threadbare-resale/" target="_blank" rel="noopener">Threadbare<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a FLIP grid re-flow and story-tag card flips</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/threadbare-resale/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/threadbare-resale" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">15</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/recess-learn/" target="_blank" rel="noopener">Recess<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a spring-physics SVG mascot and a playable tap-to-count mini-lesson</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/recess-learn/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/recess-learn" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">16</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/continuum-health/" target="_blank" rel="noopener">Continuum Health<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">an instanced three.js molecular model and animated biomarker bands</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/continuum-health/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/continuum-health" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">17</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/backstage-pass/" target="_blank" rel="noopener">Backstage Pass<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a kinetic lineup cascade, gradient washes and a live countdown</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/backstage-pass/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/backstage-pass" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">18</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/longwave-climate/" target="_blank" rel="noopener">Longwave<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a procedural three.js data globe wrapped in warming stripes</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/longwave-climate/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/longwave-climate" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">19</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/the-marginalia/" target="_blank" rel="noopener">The Marginalia<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">scroll-synced margin notes, drop caps and a reading-progress rail</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/the-marginalia/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/the-marginalia" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">20</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/hangar-12/" target="_blank" rel="noopener">Hangar 12<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a procedurally-built eVTOL wireframe with animated SVG spec callouts</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/hangar-12/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/hangar-12" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">21</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/bramble-home/" target="_blank" rel="noopener">Bramble<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">morphing organic blobs, botanical draw-on line and a plant-match quiz</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/bramble-home/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/bramble-home" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">22</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/ledger-and-vine/" target="_blank" rel="noopener">Ledger & Vine<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">layered vineyard parallax with golden light rays and a pour animation</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/ledger-and-vine/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/ledger-and-vine" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">23</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/overclock-games/" target="_blank" rel="noopener">Overclock<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a canvas pixel-dungeon loop behind a full CRT scanline/curvature pipeline</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/overclock-games/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/overclock-games" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">24</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/farebox-transit/" target="_blank" rel="noopener">Farebox<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">an interactive octilinear SVG network map and a seeded live arrivals board</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/farebox-transit/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/farebox-transit" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+      <li class="site-row">
+        <span class="site-n">25</span>
+        <span class="site-main">
+          <a class="site-name" href="https://bswxyz.github.io/ninth-wave-surf/" target="_blank" rel="noopener">Ninth Wave<span aria-hidden="true"> ↗</span></a>
+          <span class="site-sig">a procedural canvas water-shimmer hero and a scroll-drift product shelf</span>
+        </span>
+        <span class="site-links"><a href="https://bswxyz.github.io/ninth-wave-surf/guide/" target="_blank" rel="noopener">Guide</a><a href="https://github.com/bswxyz/ninth-wave-surf" target="_blank" rel="noopener">Repo</a></span>
+      </li>
+  </ol>
+
+  <h2><span class="h-n">05</span>Awwwards notes</h2>
+  <p>All twenty-five are submission-ready — each has a 1600×1200 thumbnail, a reduced-motion path and keyboard
+    support. If you were submitting a subset first, this is the recommended priority and why:</p>
+  <ol class="awards">
+    <li>
+      <h3>Perigee <span class="why">— strongest single visual + interactivity</span></h3>
+      <p class="why">A 72k-star GPU shader starfield feeding a live, draggable sky console. The most
+        immediately arresting hero of the set, and it’s genuinely interactive.</p>
+    </li>
+    <li>
+      <h3>Hangar 12 <span class="why">— procedural craft + fallback engineering</span></h3>
+      <p class="why">A procedurally-built eVTOL wireframe with animated spec callouts, and a clean static
+        fallback — judges reward technique that degrades gracefully.</p>
+    </li>
+    <li>
+      <h3>The Marginalia <span class="why">— editorial innovation</span></h3>
+      <p class="why">Scroll-synced marginalia and drop caps make a reading experience feel designed, not
+        templated. Stands out in a field of product landing pages.</p>
+    </li>
+    <li>
+      <h3>Static &amp; Noise <span class="why">— synthesized, audio-reactive</span></h3>
+      <p class="why">A Web Audio visualizer reacting to a loop synthesized in the browser — sound design is
+        rare in submissions and memorable to juries.</p>
+    </li>
+    <li>
+      <h3>Fieldnote <span class="why">— a working product demo</span></h3>
+      <p class="why">A real ⌘K command palette and citation hover-cards. It doesn’t just describe a tool;
+        it lets you use one.</p>
+    </li>
+  </ol>
+  <p style="color:var(--faint);font-size:.9rem">Awwwards recommends a short video pass per submission; that’s
+    left as a manual step here, since it needs an account and payment.</p>
+
+  <h2><span class="h-n">06</span>Reproduce it</h2>
+  <p>To run the whole thing end to end:</p>
+  <ol style="margin-left:1.15rem;color:#cfccd4">
+    <li>Write twenty-five product briefs across distinct categories; for each, name the one homepage feeling
+      and its signature technique.</li>
+    <li>Research each category on Mobbin; adopt 2–3 real interaction patterns per site.</li>
+    <li>Generate only the photographic heroes; build everything else procedurally (WebGL/canvas/SVG).</li>
+    <li>Build each site to the shared rigor bar with a unique palette / type trio / easing / technique.</li>
+    <li>Run Structure → Motion → Polish, including a reduced-motion path and a weight budget.</li>
+    <li>Ship each as its own GitHub Pages repo; capture a thumbnail with Playwright; link them from a hub.</li>
+  </ol>
+  <pre><code># a vanilla site, start to shipped
+gh repo create bswxyz/&lt;slug&gt; --public --source . --push
+gh api --method POST /repos/bswxyz/&lt;slug&gt;/pages \
+  -f 'source[branch]=main' -f 'source[path]=/'
+gh repo edit bswxyz/&lt;slug&gt; --homepage "https://bswxyz.github.io/&lt;slug&gt;/"
+# live in ~1 min; .nojekyll keeps Pages off the folder structure</code></pre>
+
+  <hr class="rule" />
+  <p style="color:var(--faint);font-size:.9rem">Fable is a design-showcase studio project. The twenty-five
+    products are fictional; the studio, the craft and this hub are real. See each repository’s README for its
+    demo-vs-real map.</p>
+  <a class="back" href="../">← Back to the gallery</a>
+</div>
+</body>
+</html>

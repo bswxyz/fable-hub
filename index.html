@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>document.documentElement.classList.add('js')</script>
+<title>FABLE — twenty-five products that don’t exist. One studio that does.</title>
+<meta name="description" content="FABLE is a design studio showcase: 25 fictional products, each a complete, individually-crafted website with its own palette, type system, motion and signature technique — plus the master guide to how they were built. No two share a template." />
+<meta name="theme-color" content="#141318" />
+<meta name="color-scheme" content="dark" />
+<meta property="og:title" content="FABLE — 25 products that don’t exist. One studio that does." />
+<meta property="og:description" content="A gallery of 25 fictional-product design showcases and the master build guide. Six stacks, twenty-five palettes, zero templates." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bswxyz.github.io/fable-hub/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div class="grid-tex" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Fable home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-word">FABLE</span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#gallery">The 25</a>
+    <a href="#range">What varies</a>
+    <a href="./guide/">The guide</a>
+    <a class="nav-cta" href="https://github.com/bswxyz" target="_blank" rel="noopener">GitHub<span aria-hidden="true"> ↗</span></a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow reveal">A design studio · twenty-five product showcases</p>
+    <h1 class="hero-title">
+      <span class="line"><span>FABLE</span></span>
+    </h1>
+    <p class="hero-lead reveal">Twenty-five products that don’t exist.<br><em>One studio that does.</em></p>
+    <div class="spectrum reveal" aria-hidden="true"><span class="spectrum-band" style="--grad:linear-gradient(90deg, #e8b06a 0.00%, #6cff6a 4.17%, #43e0c8 8.33%, #c65d3b 12.50%, #d6f24e 16.67%, #e63329 20.83%, #7d8a5f 25.00%, #b76b43 29.17%, #6d6ae0 33.33%, #b5451f 37.50%, #c6ff00 41.67%, #2bb4a6 45.83%, #8b7cff 50.00%, #2f4bff 54.17%, #ff5a4d 58.33%, #4fd6e0 62.50%, #ff3d8e 66.67%, #ff9e2c 70.83%, #7a2233 75.00%, #cfe6ff 79.17%, #35513a 83.33%, #c9a24b 87.50%, #ff2ea6 91.67%, #e4322b 95.83%, #e08d75 100.00%)"></span></div>
+    <p class="hero-sub reveal">Each product below is a complete, individually-designed website — its own palette, type
+      system, easing and signature technique. No shared template, no palette-swaps. The through-line is the
+      craft. Below the gallery, the master guide documents exactly how all twenty-five were built.</p>
+    <dl class="counters reveal" aria-label="At a glance">
+      <div class="counter"><dd><span class="c-num" data-to="25">0</span></dd><dt>sites</dt></div>
+      <div class="counter"><dd><span class="c-num" data-to="6">0</span></dd><dt>build stacks</dt></div>
+      <div class="counter"><dd><span class="c-num" data-to="0">0</span></dd><dt>templates</dt></div>
+    </dl>
+  </section>
+
+  <section id="gallery" class="gallery-sec">
+    <div class="section-head">
+      <p class="kicker reveal">[ The twenty-five ]</p>
+      <h2 class="reveal">One studio, twenty-five worlds.</h2>
+      <p class="lede reveal">Every card is a live site. Hover or focus to feel that product’s own accent.
+        Filter by build stack — the point is that no two are alike underneath, either.</p>
+    </div>
+
+    <div class="filters reveal" role="group" aria-label="Filter the gallery by build stack">
+      <button class="filter" data-filter="all" aria-pressed="true">All <span class="f-count">25</span></button>
+      <button class="filter" data-filter="vanilla" aria-pressed="false">Vanilla <span class="f-count">15</span></button>
+      <button class="filter" data-filter="astro" aria-pressed="false">Astro <span class="f-count">5</span></button>
+      <button class="filter" data-filter="next" aria-pressed="false">Next <span class="f-count">3</span></button>
+      <button class="filter" data-filter="svelte" aria-pressed="false">Svelte <span class="f-count">1</span></button>
+      <button class="filter" data-filter="vite" aria-pressed="false">Vite <span class="f-count">1</span></button>
+    </div>
+    <p class="filter-status" id="filterStatus" role="status" aria-live="polite">Showing all 25 sites.</p>
+
+    <div class="gallery">
+      <article class="card reveal" data-stack="vanilla" style="--accent:#e8b06a">
+        <a class="card-thumb" href="https://bswxyz.github.io/aperture-lab/" target="_blank" rel="noopener" aria-label="Aperture Lab — AI RAW photo editor. Open the live site (new tab).">
+          <img src="./assets/thumbs/aperture-lab.jpg" width="800" height="600" decoding="async" alt="Aperture Lab homepage — dark darkroom hero with film-grain and a drag-to-compare RAW reveal." />
+          <span class="card-num" aria-hidden="true">01</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/aperture-lab/" target="_blank" rel="noopener">Aperture Lab</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#e8b06a"></i><i style="--d:#c8863f"></i><i style="--d:#6fa0a8"></i></span>
+          </div>
+          <p class="card-concept">AI RAW photo editor</p>
+          <p class="card-sig">WebGL film-grain + before/after reveals</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/aperture-lab/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/aperture-lab" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/aperture-lab/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#6cff6a">
+        <a class="card-thumb" href="https://bswxyz.github.io/northbound-ev/" target="_blank" rel="noopener" aria-label="Northbound — EV road-trip & charging planner. Open the live site (new tab).">
+          <img src="./assets/thumbs/northbound-ev.jpg" width="800" height="600" decoding="async" alt="Northbound homepage — forest-ink 3D topographic map with a glowing green route line." />
+          <span class="card-num" aria-hidden="true">02</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/northbound-ev/" target="_blank" rel="noopener">Northbound</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#6cff6a"></i><i style="--d:#c98a4b"></i></span>
+          </div>
+          <p class="card-concept">EV road-trip & charging planner</p>
+          <p class="card-sig">topographic terrain + self-drawing route</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/northbound-ev/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/northbound-ev" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/northbound-ev/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#43e0c8">
+        <a class="card-thumb" href="https://bswxyz.github.io/perigee-astro/" target="_blank" rel="noopener" aria-label="Perigee — citizen-astronomy telescope network. Open the live site (new tab).">
+          <img src="./assets/thumbs/perigee-astro.jpg" width="800" height="600" decoding="async" alt="Perigee homepage — deep-space shader starfield with an aurora-teal live sky console." />
+          <span class="card-num" aria-hidden="true">03</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/perigee-astro/" target="_blank" rel="noopener">Perigee</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#43e0c8"></i><i style="--d:#7c6cff"></i></span>
+          </div>
+          <p class="card-concept">citizen-astronomy telescope network</p>
+          <p class="card-sig">72k-star shader starfield + live sky console</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/perigee-astro/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/perigee-astro" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/perigee-astro/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="astro" style="--accent:#c65d3b">
+        <a class="card-thumb" href="https://bswxyz.github.io/kiln-collective/" target="_blank" rel="noopener" aria-label="Kiln Collective — ceramics studio & marketplace. Open the live site (new tab).">
+          <img src="./assets/thumbs/kiln-collective.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Kiln Collective homepage — warm terracotta ceramics marketplace on textured paper." />
+          <span class="card-num" aria-hidden="true">04</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/kiln-collective/" target="_blank" rel="noopener">Kiln Collective</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#c65d3b"></i><i style="--d:#7a4a2e"></i><i style="--d:#8a9b7a"></i></span>
+          </div>
+          <p class="card-concept">ceramics studio & marketplace</p>
+          <p class="card-sig">paper grain + hand-drawn SVG draw-on</p>
+          <div class="card-foot">
+            <span class="chip">Astro</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/kiln-collective/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/kiln-collective" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/kiln-collective/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="next" style="--accent:#d6f24e">
+        <a class="card-thumb" href="https://bswxyz.github.io/meridian-advisor/" target="_blank" rel="noopener" aria-label="Meridian — robo-advisor for freelancers. Open the live site (new tab).">
+          <img src="./assets/thumbs/meridian-advisor.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Meridian homepage — navy Swiss-grid fintech dashboard with a chartreuse projection chart." />
+          <span class="card-num" aria-hidden="true">05</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/meridian-advisor/" target="_blank" rel="noopener">Meridian</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#d6f24e"></i><i style="--d:#5f9ec0"></i></span>
+          </div>
+          <p class="card-concept">robo-advisor for freelancers</p>
+          <p class="card-sig">live projection fan + allocation donut</p>
+          <div class="card-foot">
+            <span class="chip">Next.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/meridian-advisor/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/meridian-advisor" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/meridian-advisor/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#e63329">
+        <a class="card-thumb" href="https://bswxyz.github.io/undertow-festival/" target="_blank" rel="noopener" aria-label="Undertow Film Festival — independent film festival. Open the live site (new tab).">
+          <img src="./assets/thumbs/undertow-festival.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Undertow Film Festival homepage — high-contrast black-and-white festival poster with huge kinetic type." />
+          <span class="card-num" aria-hidden="true">06</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/undertow-festival/" target="_blank" rel="noopener">Undertow Film Festival</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#e63329"></i><i style="--d:#f4f4f2"></i></span>
+          </div>
+          <p class="card-concept">independent film festival</p>
+          <p class="card-sig">letterpress kinetic type + marquee tickers</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · GSAP</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/undertow-festival/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/undertow-festival" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/undertow-festival/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="astro" style="--accent:#7d8a5f">
+        <a class="card-thumb" href="https://bswxyz.github.io/fernweh-cabins/" target="_blank" rel="noopener" aria-label="Fernweh — off-grid cabin booking. Open the live site (new tab).">
+          <img src="./assets/thumbs/fernweh-cabins.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Fernweh homepage — misty forest cabin hero with layered parallax ridgelines." />
+          <span class="card-num" aria-hidden="true">07</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/fernweh-cabins/" target="_blank" rel="noopener">Fernweh</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#7d8a5f"></i><i style="--d:#c8b393"></i></span>
+          </div>
+          <p class="card-concept">off-grid cabin booking</p>
+          <p class="card-sig">long lazy parallax ridgelines</p>
+          <div class="card-foot">
+            <span class="chip">Astro</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/fernweh-cabins/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/fernweh-cabins" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/fernweh-cabins/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="astro" style="--accent:#b76b43">
+        <a class="card-thumb" href="https://bswxyz.github.io/loop-and-larder/" target="_blank" rel="noopener" aria-label="Loop & Larder — coffee roastery subscription. Open the live site (new tab).">
+          <img src="./assets/thumbs/loop-and-larder.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Loop & Larder homepage — cream coffee still life with hand-lettered ink and a roast-level picker." />
+          <span class="card-num" aria-hidden="true">08</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/loop-and-larder/" target="_blank" rel="noopener">Loop & Larder</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#b76b43"></i><i style="--d:#4a2f22"></i></span>
+          </div>
+          <p class="card-concept">coffee roastery subscription</p>
+          <p class="card-sig">hand-lettered ink draw-on + subscription builder</p>
+          <div class="card-foot">
+            <span class="chip">Astro</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/loop-and-larder/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/loop-and-larder" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/loop-and-larder/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#6d6ae0">
+        <a class="card-thumb" href="https://bswxyz.github.io/halcyon-ring/" target="_blank" rel="noopener" aria-label="Halcyon Ring — sleep-science wearable. Open the live site (new tab).">
+          <img src="./assets/thumbs/halcyon-ring.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Halcyon Ring homepage — indigo dusk gradient with a slow breathing ring guide." />
+          <span class="card-num" aria-hidden="true">09</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/halcyon-ring/" target="_blank" rel="noopener">Halcyon Ring</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#6d6ae0"></i><i style="--d:#e5a9b0"></i><i style="--d:#e8c68a"></i></span>
+          </div>
+          <p class="card-concept">sleep-science wearable</p>
+          <p class="card-sig">breathing ring + flowing dusk gradients</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · canvas</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/halcyon-ring/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/halcyon-ring" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/halcyon-ring/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#b5451f">
+        <a class="card-thumb" href="https://bswxyz.github.io/vantage-point-studio/" target="_blank" rel="noopener" aria-label="Vantage Point Studio — architecture portfolio. Open the live site (new tab).">
+          <img src="./assets/thumbs/vantage-point-studio.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Vantage Point Studio homepage — light concrete architecture portfolio with a 3D white massing model." />
+          <span class="card-num" aria-hidden="true">10</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/vantage-point-studio/" target="_blank" rel="noopener">Vantage Point Studio</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#b5451f"></i><i style="--d:#5a5a56"></i></span>
+          </div>
+          <p class="card-concept">architecture portfolio</p>
+          <p class="card-sig">morphing massing-model hover index</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/vantage-point-studio/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/vantage-point-studio" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/vantage-point-studio/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#c6ff00">
+        <a class="card-thumb" href="https://bswxyz.github.io/static-and-noise/" target="_blank" rel="noopener" aria-label="Static & Noise — independent music label. Open the live site (new tab).">
+          <img src="./assets/thumbs/static-and-noise.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Static & Noise homepage — true-black music label with an acid-lime audio-reactive visualizer." />
+          <span class="card-num" aria-hidden="true">11</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/static-and-noise/" target="_blank" rel="noopener">Static & Noise</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#c6ff00"></i><i style="--d:#ff2e88"></i></span>
+          </div>
+          <p class="card-concept">independent music label</p>
+          <p class="card-sig">synthesized loop + audio-reactive canvas</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · Web Audio</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/static-and-noise/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/static-and-noise" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/static-and-noise/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#2bb4a6">
+        <a class="card-thumb" href="https://bswxyz.github.io/driftline-ocean/" target="_blank" rel="noopener" aria-label="Driftline — ocean-conservation nonprofit. Open the live site (new tab).">
+          <img src="./assets/thumbs/driftline-ocean.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Driftline homepage — deep-blue ocean hero with flowing layered wave-forms." />
+          <span class="card-num" aria-hidden="true">12</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/driftline-ocean/" target="_blank" rel="noopener">Driftline</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#2bb4a6"></i><i style="--d:#bfe9df"></i><i style="--d:#ff7a59"></i></span>
+          </div>
+          <p class="card-concept">ocean-conservation nonprofit</p>
+          <p class="card-sig">wave-field canvases + scroll-depth descent</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · GSAP</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/driftline-ocean/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/driftline-ocean" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/driftline-ocean/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="next" style="--accent:#8b7cff">
+        <a class="card-thumb" href="https://bswxyz.github.io/fieldnote-research/" target="_blank" rel="noopener" aria-label="Fieldnote — research notes for scientists. Open the live site (new tab).">
+          <img src="./assets/thumbs/fieldnote-research.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Fieldnote homepage — dark dev-tool research app with a violet command palette." />
+          <span class="card-num" aria-hidden="true">13</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/fieldnote-research/" target="_blank" rel="noopener">Fieldnote</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#8b7cff"></i><i style="--d:#57d99a"></i></span>
+          </div>
+          <p class="card-concept">research notes for scientists</p>
+          <p class="card-sig">working ⌘K palette + citation hover-cards</p>
+          <div class="card-foot">
+            <span class="chip">Next.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/fieldnote-research/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/fieldnote-research" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/fieldnote-research/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="next" style="--accent:#2f4bff">
+        <a class="card-thumb" href="https://bswxyz.github.io/threadbare-resale/" target="_blank" rel="noopener" aria-label="Threadbare — circular-fashion resale. Open the live site (new tab).">
+          <img src="./assets/thumbs/threadbare-resale.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Threadbare homepage — bold color-blocked resale marketplace with an oversized product grid." />
+          <span class="card-num" aria-hidden="true">14</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/threadbare-resale/" target="_blank" rel="noopener">Threadbare</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#2f4bff"></i><i style="--d:#ffe14d"></i><i style="--d:#ff8fb1"></i></span>
+          </div>
+          <p class="card-concept">circular-fashion resale</p>
+          <p class="card-sig">FLIP grid re-flow + story-tag card flips</p>
+          <div class="card-foot">
+            <span class="chip">Next.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/threadbare-resale/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/threadbare-resale" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/threadbare-resale/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="svelte" style="--accent:#ff5a4d">
+        <a class="card-thumb" href="https://bswxyz.github.io/recess-learn/" target="_blank" rel="noopener" aria-label="Recess — kids’ learning app. Open the live site (new tab).">
+          <img src="./assets/thumbs/recess-learn.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Recess homepage — playful cream kids app with a bouncy mascot and primary colours." />
+          <span class="card-num" aria-hidden="true">15</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/recess-learn/" target="_blank" rel="noopener">Recess</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#ff5a4d"></i><i style="--d:#3d7bff"></i><i style="--d:#ffd23d"></i></span>
+          </div>
+          <p class="card-concept">kids’ learning app</p>
+          <p class="card-sig">spring-physics mascot + playable mini-lesson</p>
+          <div class="card-foot">
+            <span class="chip">SvelteKit</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/recess-learn/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/recess-learn" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/recess-learn/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#4fd6e0">
+        <a class="card-thumb" href="https://bswxyz.github.io/continuum-health/" target="_blank" rel="noopener" aria-label="Continuum Health — longevity research. Open the live site (new tab).">
+          <img src="./assets/thumbs/continuum-health.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Continuum Health homepage — clinical steel longevity site with a 3D molecular model." />
+          <span class="card-num" aria-hidden="true">16</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/continuum-health/" target="_blank" rel="noopener">Continuum Health</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#4fd6e0"></i><i style="--d:#7be0b0"></i><i style="--d:#e2b673"></i></span>
+          </div>
+          <p class="card-concept">longevity research</p>
+          <p class="card-sig">instanced molecular model + biomarker bands</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/continuum-health/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/continuum-health" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/continuum-health/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#ff3d8e">
+        <a class="card-thumb" href="https://bswxyz.github.io/backstage-pass/" target="_blank" rel="noopener" aria-label="Backstage Pass — music-festival platform. Open the live site (new tab).">
+          <img src="./assets/thumbs/backstage-pass.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Backstage Pass homepage — gradient-washed festival platform with a kinetic lineup wall and countdown." />
+          <span class="card-num" aria-hidden="true">17</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/backstage-pass/" target="_blank" rel="noopener">Backstage Pass</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#ff3d8e"></i><i style="--d:#ff8a3d"></i><i style="--d:#8b5cf6"></i></span>
+          </div>
+          <p class="card-concept">music-festival platform</p>
+          <p class="card-sig">kinetic lineup cascade + gradient washes + countdown</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · GSAP</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/backstage-pass/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/backstage-pass" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/backstage-pass/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#ff9e2c">
+        <a class="card-thumb" href="https://bswxyz.github.io/longwave-climate/" target="_blank" rel="noopener" aria-label="Longwave — climate & satellite analytics. Open the live site (new tab).">
+          <img src="./assets/thumbs/longwave-climate.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Longwave homepage — dark climate-analytics site with a procedural data globe and warming stripes." />
+          <span class="card-num" aria-hidden="true">18</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/longwave-climate/" target="_blank" rel="noopener">Longwave</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#ff9e2c"></i><i style="--d:#ff5e3a"></i><i style="--d:#3aa0ff"></i></span>
+          </div>
+          <p class="card-concept">climate & satellite analytics</p>
+          <p class="card-sig">procedural data globe + warming stripes</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/longwave-climate/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/longwave-climate" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/longwave-climate/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="astro" style="--accent:#7a2233">
+        <a class="card-thumb" href="https://bswxyz.github.io/the-marginalia/" target="_blank" rel="noopener" aria-label="The Marginalia — literary magazine. Open the live site (new tab).">
+          <img src="./assets/thumbs/the-marginalia.jpg" width="800" height="600" loading="lazy" decoding="async" alt="The Marginalia homepage — warm-paper literary magazine with drop caps and margin notes." />
+          <span class="card-num" aria-hidden="true">19</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/the-marginalia/" target="_blank" rel="noopener">The Marginalia</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#7a2233"></i></span>
+          </div>
+          <p class="card-concept">literary magazine</p>
+          <p class="card-sig">scroll-synced margin notes + drop caps</p>
+          <div class="card-foot">
+            <span class="chip">Astro</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/the-marginalia/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/the-marginalia" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/the-marginalia/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#cfe6ff">
+        <a class="card-thumb" href="https://bswxyz.github.io/hangar-12/" target="_blank" rel="noopener" aria-label="Hangar 12 — eVTOL urban air mobility. Open the live site (new tab).">
+          <img src="./assets/thumbs/hangar-12.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Hangar 12 homepage — carbon-black aviation blueprint with a procedural eVTOL wireframe." />
+          <span class="card-num" aria-hidden="true">20</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/hangar-12/" target="_blank" rel="noopener">Hangar 12</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#cfe6ff"></i><i style="--d:#b8bcc2"></i></span>
+          </div>
+          <p class="card-concept">eVTOL urban air mobility</p>
+          <p class="card-sig">procedural wireframe aircraft + spec callouts</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · three.js</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/hangar-12/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/hangar-12" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/hangar-12/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="astro" style="--accent:#35513a">
+        <a class="card-thumb" href="https://bswxyz.github.io/bramble-home/" target="_blank" rel="noopener" aria-label="Bramble — plant-care DTC. Open the live site (new tab).">
+          <img src="./assets/thumbs/bramble-home.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Bramble homepage — ecru botanical plant-care shop with organic blob shapes." />
+          <span class="card-num" aria-hidden="true">21</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/bramble-home/" target="_blank" rel="noopener">Bramble</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#35513a"></i><i style="--d:#c58a5e"></i><i style="--d:#6f8f5f"></i></span>
+          </div>
+          <p class="card-concept">plant-care DTC</p>
+          <p class="card-sig">morphing blobs + botanical draw-on + plant quiz</p>
+          <div class="card-foot">
+            <span class="chip">Astro</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/bramble-home/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/bramble-home" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/bramble-home/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#c9a24b">
+        <a class="card-thumb" href="https://bswxyz.github.io/ledger-and-vine/" target="_blank" rel="noopener" aria-label="Ledger & Vine — boutique winery club. Open the live site (new tab).">
+          <img src="./assets/thumbs/ledger-and-vine.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Ledger & Vine homepage — burgundy winery club with a layered golden-hour vineyard parallax." />
+          <span class="card-num" aria-hidden="true">22</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/ledger-and-vine/" target="_blank" rel="noopener">Ledger & Vine</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#c9a24b"></i><i style="--d:#a63b52"></i></span>
+          </div>
+          <p class="card-concept">boutique winery club</p>
+          <p class="card-sig">layered vineyard parallax + pour animations</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · GSAP</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/ledger-and-vine/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/ledger-and-vine" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/ledger-and-vine/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#ff2ea6">
+        <a class="card-thumb" href="https://bswxyz.github.io/overclock-games/" target="_blank" rel="noopener" aria-label="Overclock — indie roguelike studio. Open the live site (new tab).">
+          <div class="card-ph" role="img" aria-label="Overclock preview — capture pending"><span>Preview<br>capturing…</span></div>
+          <span class="card-num" aria-hidden="true">23</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/overclock-games/" target="_blank" rel="noopener">Overclock</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#ff2ea6"></i><i style="--d:#29e6ff"></i><i style="--d:#ffb02e"></i></span>
+          </div>
+          <p class="card-concept">indie roguelike studio</p>
+          <p class="card-sig">canvas pixel dungeon + CRT pipeline</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · zero-dep</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/overclock-games/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/overclock-games" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/overclock-games/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vite" style="--accent:#e4322b">
+        <a class="card-thumb" href="https://bswxyz.github.io/farebox-transit/" target="_blank" rel="noopener" aria-label="Farebox — civic transit app. Open the live site (new tab).">
+          <img src="./assets/thumbs/farebox-transit.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Farebox homepage — high-contrast civic transit app with an octilinear SVG network map." />
+          <span class="card-num" aria-hidden="true">24</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/farebox-transit/" target="_blank" rel="noopener">Farebox</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#e4322b"></i><i style="--d:#1f6fe0"></i><i style="--d:#f5a623"></i></span>
+          </div>
+          <p class="card-concept">civic transit app</p>
+          <p class="card-sig">octilinear SVG network map + seeded arrivals board</p>
+          <div class="card-foot">
+            <span class="chip">Vite · TS</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/farebox-transit/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/farebox-transit" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/farebox-transit/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal" data-stack="vanilla" style="--accent:#e08d75">
+        <a class="card-thumb" href="https://bswxyz.github.io/ninth-wave-surf/" target="_blank" rel="noopener" aria-label="Ninth Wave — surf & outdoor apparel. Open the live site (new tab).">
+          <div class="card-ph" role="img" aria-label="Ninth Wave preview — capture pending"><span>Preview<br>capturing…</span></div>
+          <span class="card-num" aria-hidden="true">25</span>
+        </a>
+        <div class="card-body">
+          <div class="card-head">
+            <h3 class="card-name"><a href="https://bswxyz.github.io/ninth-wave-surf/" target="_blank" rel="noopener">Ninth Wave</a></h3>
+            <span class="card-dots" aria-hidden="true"><i style="--d:#e08d75"></i><i style="--d:#5877a0"></i><i style="--d:#c96b4f"></i></span>
+          </div>
+          <p class="card-concept">surf & outdoor apparel</p>
+          <p class="card-sig">sun-bleached poster hero + scroll-drift shelf</p>
+          <div class="card-foot">
+            <span class="chip">vanilla · GSAP</span>
+            <span class="card-links">
+              <a href="https://bswxyz.github.io/ninth-wave-surf/" target="_blank" rel="noopener">Live<span aria-hidden="true"> ↗</span></a>
+              <a href="https://github.com/bswxyz/ninth-wave-surf" target="_blank" rel="noopener">Repo</a>
+              <a href="https://bswxyz.github.io/ninth-wave-surf/guide/" target="_blank" rel="noopener">Guide</a>
+            </span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="range" class="range">
+    <div class="section-head">
+      <p class="kicker reveal">[ What varies ]</p>
+      <h2 class="reveal">No two share a template.</h2>
+      <p class="lede reveal">The discipline of the set is difference. Same rigor bar — design tokens, a clipped-line
+        hero, scroll reveals, a reduced-motion fallback, keyboard focus, a per-site build guide — expressed
+        twenty-five ways.</p>
+    </div>
+    <div class="range-grid">
+      <article class="rcard reveal">
+        <span class="r-num">6</span>
+        <h3>Build stacks</h3>
+        <p>Vanilla JS, three.js / WebGL, Astro, Next.js (static export), SvelteKit and Vite + TS —
+          each chosen to fit its product, not a house default.</p>
+      </article>
+      <article class="rcard reveal">
+        <span class="r-num">25</span>
+        <h3>Palettes</h3>
+        <p>From Perigee’s <code>#05060a</code> deep-space black to Farebox’s <code>#ffffff</code> civic white —
+          light themes, near-blacks, burgundy, forest-ink, bleached sand. No accent repeats as a lead.</p>
+      </article>
+      <article class="rcard reveal">
+        <span class="r-num">25</span>
+        <h3>Type trios</h3>
+        <p>Every site pairs a distinct display + body + mono — Fraunces, Anton, Syne, Cormorant, Bebas,
+          Unbounded, VT323 and more. No two trios repeat.</p>
+      </article>
+      <article class="rcard reveal">
+        <span class="r-num">25</span>
+        <h3>Signature techniques</h3>
+        <p>Starfield shaders, self-drawing routes, audio-reactive canvas, molecular models, data globes,
+          CRT pixel dungeons, scroll-synced marginalia — one signature each, never reused.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="guide-teaser">
+    <div class="gt-inner reveal">
+      <p class="kicker">[ The master guide ]</p>
+      <h2>How twenty-five sites got built.</h2>
+      <p class="lede">The full methodology — ideation, per-category Mobbin UX research, asset generation,
+        per-site build, three iteration passes, and the GitHub Pages deploy recipe — plus honest notes on
+        what was AI-generated, and links out to all twenty-five individual guides and repos.</p>
+      <a class="btn btn-primary" href="./guide/">Read the master guide<span aria-hidden="true"> →</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="foot-top">
+    <span class="foot-brand">FABLE</span>
+    <div class="foot-links">
+      <a href="#gallery">The 25</a>
+      <a href="./guide/">The guide</a>
+      <a href="https://github.com/bswxyz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Fable — the twenty-five products are fictional design concepts; the studio and this hub are real.</span>
+    <span>Designed &amp; built by Fable · <a href="https://github.com/bswxyz" target="_blank" rel="noopener">github.com/bswxyz ↗</a></span>
+  </div>
+</footer>
+
+<script src="./main.js" defer></script>
+</body>
+</html>
