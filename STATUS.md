@@ -40,4 +40,4 @@ master `/guide/` links out to each individual guide and repository. The hub itse
 added to the gallery as a distinguished real-client entry rather than one of the fictional 25. No Mobbin
 research and no Higgsfield 3D/video assets were used for it — see its `/guide` for the honest rationale.
 
-_Last updated: 2026-07-10 (added the Unique Driving School real-client build). Working root: `/Users/user/lets see`._
+_Last updated: 2026-07-10 (added the Unique Driving School real-client build)._
